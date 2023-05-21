@@ -18,6 +18,29 @@ const AppSettingsScreen = props => {
 
   return (
     <ScreenContainer scrollable={true} hasSafeArea={true}>
+      <Touchable
+        onPress={() => {
+          try {
+            navigation.navigate('BottomTabNavigator', {
+              screen: 'AccountScreen',
+            });
+          } catch (err) {
+            console.error(err);
+          }
+        }}
+        style={StyleSheet.applyWidth({ height: 65 }, dimensions.width)}
+      >
+        {/* View 2 */}
+        <View />
+        <Icon
+          style={StyleSheet.applyWidth(
+            { marginLeft: 10, marginTop: 15 },
+            dimensions.width
+          )}
+          size={24}
+          name={'AntDesign/left'}
+        />
+      </Touchable>
       {/* Header Wrapper */}
       <View
         style={StyleSheet.applyWidth(
@@ -46,11 +69,18 @@ const AppSettingsScreen = props => {
         >
           {'Settings'}
         </Text>
+        <View />
       </View>
       {/* Content Wrapper */}
       <View
         style={StyleSheet.applyWidth(
-          { flexGrow: 1, flexShrink: 0, marginLeft: 24, marginRight: 24 },
+          {
+            alignItems: 'flex-start',
+            flexGrow: 1,
+            flexShrink: 0,
+            marginLeft: 24,
+            marginRight: 24,
+          },
           dimensions.width
         )}
       >
